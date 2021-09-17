@@ -1,4 +1,14 @@
 <?php 
+if(!isset($_SESSION)) {
+    session_start ();
+}
+
+$_SESSION['nome'] = $usuario->getNome();// a sessao recebendo os dados 
+$_SESSION['nome_usuario'] = $usuario->getNome_usuario();
+$_SESSION['email'] = $usuario->getEmail();
+$_SESSION['senha'] = $usuario->getSenha();
+    $id = session_id(); 
+
 
     require "classe_usuario.php";
 
@@ -33,9 +43,6 @@ $conexao = new PDO('mysql:host=localhost;dbname=prova_pweb', $username, $passwor
 
     var_dump($sql);
  
-
-	$sql = "ALTER TABLE prova_pweb MODIFY COLUMN id INT auto_increment";
-
     $dados = $nome;
     $dados = $nome_usuario;
     $dados = $email;

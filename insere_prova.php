@@ -29,10 +29,6 @@ $conexao = new PDO('mysql:host=localhost;dbname=prova_pweb', $username, $passwor
     $mostrar_nome_usuario = "$nome_usuario \n";
     $mostrar_email = "$email \n";
 
-    echo nl2br ($mostrar_nome); 
-    echo nl2br ($mostrar_nome_usuario);
-    echo nl2br ($mostrar_email);  
-
     $criptografia = md5($usuario->getSenha());
 
     echo nl2br ($criptografia);
@@ -57,11 +53,10 @@ $conexao = new PDO('mysql:host=localhost;dbname=prova_pweb', $username, $passwor
 
  <td>
 
-<?php 
-
-while ($dados = mysql_fetch_array($query)) {
-
-var_dump($dados);
+<?php echo $_SESSION['nome_usuario']; 
+echo $_SESSION['nome'];
+echo $_SESSION['email'];
+echo nl2br ($criptografia);
 
 }
 
